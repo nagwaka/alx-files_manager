@@ -54,6 +54,10 @@ const routesController = (app) => {
   router.put('/files/:id/unpublish', (req, res) => {
     FilesController.putUnpublish(req, res);
   });
+  // returns the content of the file document based on the ID
+  router.get('/files/:id/data', (req, res) => {
+    FilesController.getFile(req, res);
+  });
 };
 
 export default routesController;
