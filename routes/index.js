@@ -35,6 +35,16 @@ const routesController = (app) => {
   router.post('/files', (req, res) => {
     FilesController.postUpload(req, res);
   });
+  // retrieves the file document based on the ID
+  router.get('/files/:id', (req, res) => {
+    FilesController.getShow(req, res);
+  });
+
+  // retrieves all users file documents for a
+  // specific parentId and with pagination
+  router.get('/files', (req, res) => {
+    FilesController.getIndex(req, res);
+  });
 };
 
 export default routesController;
