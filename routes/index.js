@@ -2,6 +2,7 @@ import express from 'express';
 import AppController from '../controllers/AppController';
 import UsersController from '../controllers/UsersController';
 import AuthController from '../controllers/AuthController';
+import FilesController from '../controllers/FilesController';
 
 const routesController = (app) => {
   const router = express.Router();
@@ -29,6 +30,10 @@ const routesController = (app) => {
   // retrieves a  user base on the token used
   router.get('/users/me', (req, res) => {
     UsersController.getMe(req, res);
+  });
+  // creates a new file in DB and in disk
+  router.post('/files', (req, res) => {
+    FilesController.postUpload(req, res);
   });
 };
 
