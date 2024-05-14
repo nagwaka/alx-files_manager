@@ -45,6 +45,15 @@ const routesController = (app) => {
   router.get('/files', (req, res) => {
     FilesController.getIndex(req, res);
   });
+  // sets isPublic to true on the file document based on the ID
+  router.put('/files/:id/publish', (req, res) => {
+    FilesController.putPublish(req, res);
+  });
+
+  // sets isPublic to false on the file document based on the ID
+  router.put('/files/:id/unpublish', (req, res) => {
+    FilesController.putUnpublish(req, res);
+  });
 };
 
 export default routesController;
